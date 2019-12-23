@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1:3306
--- Generation Time: Dec 23, 2019 at 05:05 PM
+-- Generation Time: Dec 23, 2019 at 05:15 PM
 -- Server version: 5.7.23
 -- PHP Version: 7.2.10
 
@@ -32,7 +32,9 @@ DROP TABLE IF EXISTS `activities`;
 CREATE TABLE IF NOT EXISTS `activities` (
   `id` int(11) NOT NULL,
   `timestampMs` timestamp NULL DEFAULT NULL,
-  PRIMARY KEY (`id`)
+  `data_id` int(11) NOT NULL,
+  PRIMARY KEY (`id`),
+  KEY `location_id` (`data_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
@@ -67,7 +69,9 @@ CREATE TABLE IF NOT EXISTS `type_conf` (
   `type_id` int(11) NOT NULL,
   `type` varchar(255) NOT NULL,
   `confidence` varchar(255) NOT NULL,
-  PRIMARY KEY (`type_id`)
+  `activities_id` int(11) NOT NULL,
+  PRIMARY KEY (`type_id`),
+  KEY `activities_id` (`activities_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
@@ -102,7 +106,7 @@ INSERT INTO `users` (`id`, `username`, `password`, `email`, `userid`) VALUES
 -- Constraints for table `activities`
 --
 ALTER TABLE `activities`
-  ADD CONSTRAINT `activity_id` FOREIGN KEY (`id`) REFERENCES `data` (`dataid`);
+  ADD CONSTRAINT `location_id` FOREIGN KEY (`data_id`) REFERENCES `data` (`dataid`);
 
 --
 -- Constraints for table `data`
@@ -114,7 +118,7 @@ ALTER TABLE `data`
 -- Constraints for table `type_conf`
 --
 ALTER TABLE `type_conf`
-  ADD CONSTRAINT `activities_loc` FOREIGN KEY (`type_id`) REFERENCES `activities` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
+  ADD CONSTRAINT `activities_id` FOREIGN KEY (`activities_id`) REFERENCES `activities` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
