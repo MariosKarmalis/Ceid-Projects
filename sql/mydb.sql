@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1:3306
--- Generation Time: Dec 17, 2019 at 08:12 PM
+-- Generation Time: Dec 23, 2019 at 05:05 PM
 -- Server version: 5.7.23
 -- PHP Version: 7.2.10
 
@@ -21,6 +21,19 @@ SET time_zone = "+00:00";
 --
 -- Database: `mydb`
 --
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `activities`
+--
+
+DROP TABLE IF EXISTS `activities`;
+CREATE TABLE IF NOT EXISTS `activities` (
+  `id` int(11) NOT NULL,
+  `timestampMs` timestamp NULL DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
 
@@ -46,19 +59,33 @@ CREATE TABLE IF NOT EXISTS `data` (
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `type_conf`
+--
+
+DROP TABLE IF EXISTS `type_conf`;
+CREATE TABLE IF NOT EXISTS `type_conf` (
+  `type_id` int(11) NOT NULL,
+  `type` varchar(255) NOT NULL,
+  `confidence` varchar(255) NOT NULL,
+  PRIMARY KEY (`type_id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `users`
 --
 
 DROP TABLE IF EXISTS `users`;
 CREATE TABLE IF NOT EXISTS `users` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
-  `username` varchar(255) COLLATE latin1_general_ci NOT NULL,
-  `password` varchar(255) COLLATE latin1_general_ci NOT NULL,
-  `email` varchar(255) COLLATE latin1_general_ci NOT NULL,
-  `userid` varchar(255) COLLATE latin1_general_ci NOT NULL,
+  `username` varchar(255) CHARACTER SET latin1 COLLATE latin1_general_ci NOT NULL,
+  `password` varchar(255) CHARACTER SET latin1 COLLATE latin1_general_ci NOT NULL,
+  `email` varchar(255) CHARACTER SET latin1 COLLATE latin1_general_ci NOT NULL,
+  `userid` varchar(255) CHARACTER SET latin1 COLLATE latin1_general_ci NOT NULL,
   PRIMARY KEY (`id`) USING BTREE,
   UNIQUE KEY `userid` (`userid`)
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=latin1 COLLATE=latin1_general_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
 
 --
 -- Dumping data for table `users`
@@ -72,10 +99,22 @@ INSERT INTO `users` (`id`, `username`, `password`, `email`, `userid`) VALUES
 --
 
 --
+-- Constraints for table `activities`
+--
+ALTER TABLE `activities`
+  ADD CONSTRAINT `activity_id` FOREIGN KEY (`id`) REFERENCES `data` (`dataid`);
+
+--
 -- Constraints for table `data`
 --
 ALTER TABLE `data`
   ADD CONSTRAINT `user_id` FOREIGN KEY (`dataid`) REFERENCES `users` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
+
+--
+-- Constraints for table `type_conf`
+--
+ALTER TABLE `type_conf`
+  ADD CONSTRAINT `activities_loc` FOREIGN KEY (`type_id`) REFERENCES `activities` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
