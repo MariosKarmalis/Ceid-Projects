@@ -10,38 +10,31 @@
       <?php
       $json = file_get_contents("../0_Demo_data/sample.json");
       $json2 = json_decode($json,TRUE);
-
-    foreach ($json2['locations'] as $loc) {
+      
+      foreach ($json2['locations'] as $loc) {
         // $values = array_values($loc);
         echo("\n");
         if (array_key_exists('timestampMs', $loc)){
             $timestampMs = $loc['timestampMs'];
-            echo "timestampMs " .$loc['timestampMs']. "\n";
-        }
+            echo "timestampMs " .$loc['timestampMs']. "\n";}
         if (array_key_exists('latitudeE7', $loc)){
             $latitudeE7 = $loc['latitudeE7'];
-            echo "latitudeE7 " .$loc['latitudeE7']. "\n";
-        }
+            echo "latitudeE7 " .$loc['latitudeE7']. "\n";}
         if (array_key_exists('longitudeE7', $loc)){
             $longitudeE7 = $loc['longitudeE7'];
-            echo "longitudeE7 " .$loc['longitudeE7']. "\n";
-        }
+            echo "longitudeE7 " .$loc['longitudeE7']. "\n";}
         if (array_key_exists('accuracy', $loc)){
             $accuracy = $loc['accuracy'];
-            echo "accuracy " .$loc['accuracy']. "\n";
-        }
+            echo "accuracy " .$loc['accuracy']. "\n";}
         if (array_key_exists('velocity', $loc)){
             $velocity = $loc['velocity'];
-            echo "velocity " .$loc['velocity']. "\n";
-        }
+            echo "velocity " .$loc['velocity']. "\n";}
         if (array_key_exists('heading', $loc)){
             $heading = $loc['heading'];
-            echo "heading " .$loc['heading']. "\n";
-        }
+            echo "heading " .$loc['heading']. "\n";}
         if (array_key_exists('altitude', $loc)){
             $altitude = $loc['altitude'];
-            echo "altitude " .$loc['altitude']. "\n";
-        }
+            echo "altitude " .$loc['altitude']. "\n";}
         echo("\n");
         // print_r($loc['activity']);
 
@@ -63,16 +56,11 @@
                     echo "      confidence " .$loc_ac_type_conf['confidence']. "\n";
                 }
             }
-
             echo("\n");
-
         }
-
         // print_r($values);
         // print_r($loc);
     }
-
-
       ?>
     </pre>
   </body>
