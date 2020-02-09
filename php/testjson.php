@@ -12,14 +12,18 @@
       $json2 = json_decode($json,TRUE);
       print_r($json2);
 
-      echo "<h2>Printing activities example</h2>\n";
-      foreach ($json2['activity'] as $act) {
-        print_r($act);
-      }
+      // echo "<h2>Printing activities example</h2>\n";
+      //   foreach ($json2['activity'] as $act) {
+      //     print_r($act);
+      //   }
 
       /** Another way to parse
         * Personally not really prefered
         */
+
+      // echo("==================================================================================");
+      // echo("==================================================================================\n");
+
       $jsonIterator = new RecursiveIteratorIterator(
       new RecursiveArrayIterator(json_decode($json, TRUE)),
       RecursiveIteratorIterator::SELF_FIRST);

@@ -1,28 +1,69 @@
-{"timestampMs":"1443346801817",
-  "latitudeE7":383117366,
-  "longitudeE7":219865927,
-  "accuracy":14,
-  "velocity":0,
-  "heading":0,
-  "altitude":48,
-  "activity":
-    [
-      { "timestampMs":"1443346778200",
-        "activity":
+{ "locations": [  
+  {"timestampMs":"1443346801817",
+   "latitudeE7":383117366,
+    "longitudeE7":219865927,
+    "accuracy":14,
+    "velocity":0,
+    "heading":0,
+    "altitude":48,
+    "activity":
+      [{ "timestampMs":"1443346778200",
+         "activity":
             [{"type":"ON_FOOT","confidence":92},
              {"type":"WALKING","confidence":92},
              {"type":"UNKNOWN","confidence":5},
-             {"type":"STILL","confidence":3}]
-       },
-       {"timestampMs":"1443346778258",
-        "activity":
-            [{"type":"EXITING_VEHICLE","confidence":99}]
-       },
-       {"timestampMs":"1443346801595",
-        "activity":
-            [{"type":"ON_FOOT","confidence":85},
-             {"type":"WALKING","confidence":85},
-             {"type":"UNKNOWN","confidence":15}]
-       }
-    ]
-  }
+             {"type":"STILL","confidence":3}]},
+        {"timestampMs":"1443346778258",
+         "activity":
+            [{"type":"EXITING_VEHICLE","confidence":99}]},
+        {"timestampMs":"1443346801595",
+         "activity":
+            [ {"type":"ON_FOOT","confidence":85},
+              {"type":"WALKING","confidence":85},
+              {"type":"UNKNOWN","confidence":15}]         
+        }      
+      ]    
+  },
+  {"timestampMs":"1443269086780",
+  "latitudeE7":378077314,
+  "longitudeE7":217752452,
+  "accuracy":3961,
+  "activity":        
+      [          
+        {"timestampMs":"1443269086029",
+          "activity":
+            [
+              {"type":"IN_VEHICLE","confidence":92},
+              {"type":"UNKNOWN","confidence":8}              
+            ]
+        },
+        {"timestampMs":"1443269216835",            
+          "activity":              
+          [{"type":"IN_VEHICLE","confidence":100}]
+        },
+        {"timestampMs":"1443269397129",            
+          "activity":              
+            [                
+              {"type":"IN_VEHICLE","confidence":69},                
+              {"type":"STILL","confidence":15},                
+              {"type":"UNKNOWN","confidence":15}              
+            ]
+        },          
+        {"timestampMs":"1443269579040",            
+          "activity":              
+            [{"type":"IN_VEHICLE","confidence":38},                
+              {"type":"UNKNOWN","confidence":23},                
+              {"type":"ON_FOOT","confidence":15},                
+              {"type":"STILL","confidence":15},
+              {"type":"WALKING","confidence":15},  
+              {"type":"ON_BICYCLE","confidence":8}
+            ]
+        },          
+        {"timestampMs":"1443269760773",            
+          "activity":              
+            [{"type":"IN_VEHICLE","confidence":100}]
+        }        
+      ]      
+  }  
+]
+} 
