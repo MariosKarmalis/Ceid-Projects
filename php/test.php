@@ -8,7 +8,7 @@
     Ohh wee
     <pre>
       <?php
-      $json = file_get_contents("../0_Demo_data/sample.json");
+      $json = file_get_contents("../0_Demo_data/sample2.json");
       $json2 = json_decode($json,TRUE);
       
       foreach ($json2['locations'] as $loc) {
@@ -16,7 +16,13 @@
         echo("\n");
         if (array_key_exists('timestampMs', $loc)){
             $timestampMs = $loc['timestampMs'];
-            echo "timestampMs " .$loc['timestampMs']. "\n";}
+            echo "timestampMs " .$loc['timestampMs']. "\n";
+            
+            // $test = (float)$loc['timestampMs'];
+            $test = date('Y-m-d h:i:s', (float)$loc['timestampMs'] / 1000);
+            echo ($test);
+            echo ("\n");        
+        }
         if (array_key_exists('latitudeE7', $loc)){
             $latitudeE7 = $loc['latitudeE7'];
             echo "latitudeE7 " .$loc['latitudeE7']. "\n";}
@@ -37,29 +43,31 @@
             echo "altitude " .$loc['altitude']. "\n";}
         echo("\n");
         // print_r($loc['activity']);
-
-        foreach($loc['activity'] as $loc_ac){
-            if (array_key_exists('timestampMs', $loc_ac)){
-                $loc_ac_timestampMs = $loc_ac['timestampMs'];
-                echo "  loc_ac_timestampMs " .$loc_ac['timestampMs']. "\n";
-            }
-            echo("\n");
-            // print_r($loc_ac['activity']);
-
-            foreach($loc_ac['activity'] as $loc_ac_type_conf){
-                if (array_key_exists('type', $loc_ac_type_conf)){
-                    $type = $loc_ac_type_conf['type'];
-                    echo "      type " .$loc_ac_type_conf['type']. "\n";
+        if(array_key_exists('activity',$loc)){
+            foreach($loc['activity'] as $loc_ac){
+                if (array_key_exists('timestampMs', $loc_ac)){
+                    $loc_ac_timestampMs = date('Y-m-d h:i:s', (float)$loc_ac['timestampMs'] / 1000);
+                    echo "  loc_ac_timestampMs " .$loc_ac_timestampMs. "\n";
                 }
-                if (array_key_exists('confidence', $loc_ac_type_conf)){
-                    $confidence = $loc_ac_type_conf['confidence'];
-                    echo "      confidence " .$loc_ac_type_conf['confidence']. "\n";
+                echo("\n");
+                // print_r($loc_ac['activity']);
+                if(array_key_exists('activity',$loc)){
+                    foreach($loc_ac['activity'] as $loc_ac_type_conf){
+                        if (array_key_exists('type', $loc_ac_type_conf)){
+                            $type = $loc_ac_type_conf['type'];
+                            echo "      type " .$loc_ac_type_conf['type']. "\n";
+                        }
+                        if (array_key_exists('confidence', $loc_ac_type_conf)){
+                            $confidence = $loc_ac_type_conf['confidence'];
+                            echo "      confidence " .$loc_ac_type_conf['confidence']. "\n";
+                        }
+                    }
+                    echo("\n");
                 }
             }
-            echo("\n");
+            // print_r($values);
+            // print_r($loc);
         }
-        // print_r($values);
-        // print_r($loc);
     }
       ?>
     </pre>
