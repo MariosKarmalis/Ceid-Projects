@@ -21,7 +21,9 @@
            $result = mysqli_query($connect, $query);  
            if(mysqli_num_rows($result) > 0)  
            {  
-                $_SESSION['username'] = $username;  
+                $_SESSION['username'] = $username;
+                $row = $result->fetch_assoc();
+                $_SESSION['uid'] = $row["u_id"];
                 header("location:welcome.php");  
            }  
            else  
