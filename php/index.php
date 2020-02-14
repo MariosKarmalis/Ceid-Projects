@@ -21,9 +21,9 @@
            $result = mysqli_query($connect, $query);  
            if(mysqli_num_rows($result) > 0)  
            {  
-                $_SESSION['username'] = $username;
+                $_SESSION['username'] = $username; 
                 $row = $result->fetch_assoc();
-                $_SESSION['uid'] = $row["u_id"];
+                $_SESSION['uid'] = $row["u_id"]; 
                 header("location:welcome.php");  
            }  
            else  
@@ -53,7 +53,7 @@
 	  {
            $username = mysqli_real_escape_string($connect, $_POST["username"]);  
            $password = mysqli_real_escape_string($connect, $_POST["password"]); 
-		   $email = mysqli_real_escape_string($connect, $_POST["email"]);
+		 $email = mysqli_real_escape_string($connect, $_POST["email"]);
 		// 2 way Encryption process via openssl_encrypt for user id creation
 		   $cipher = "aes-256-cbc";
 		   $ivlen = openssl_cipher_iv_length($cipher);
@@ -75,12 +75,13 @@
  <html>  
 		
       <head >  
-           <title>User Login</title>  
+           <title>User Login</title> 
+           <meta name="viewport" content="width=device-width, initial-scale=1.0">  
            <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>  
            <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" />  
            <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>  
       </head>  
-      <body style="background-image: url('font.jpg');">  
+      <body style="background-image: url('font.jpg'); ">  
            <br /><br />  
            <div class="container" style="width:500px; ">  
                 <br />  

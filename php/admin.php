@@ -21,7 +21,7 @@
            $result = mysqli_query($connect, $query);  
            if(mysqli_num_rows($result) > 0)  
            {  
-                $_SESSION['username'] = $username;  
+                $_SESSION['admin'] = $username;  
                 header("location:welcome_admin.php");  
            }  
            else  
