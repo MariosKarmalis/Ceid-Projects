@@ -17,6 +17,9 @@
     <link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
     <title>Admin Dashboard</title>
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+    <script src="https://unpkg.com/gijgo@1.9.13/js/gijgo.min.js" type="text/javascript"></script>
+    <link href="https://unpkg.com/gijgo@1.9.13/css/gijgo.min.css" rel="stylesheet" type="text/css" />
   </head>
   <body>
     
@@ -48,9 +51,8 @@
             <!-- end of sidebar -->
 
            <!-- top-nav -->
-           <div class="col-sm-9 d-flex justify-content-end">
+           <div class="col-sm-12 d-flex justify-content-end">
             <nav class="navbar navbar-dark sticky-top bg-dark flex-md-nowrap  p-0">
-              <input class="form-control form-control-dark w-100" type="text" placeholder="Search" aria-label="Search">
               <ul class="navbar-nav px-3">
               <li class="nav-item text-nowrap">
                 <a class="nav-link" href="logout.php">Logout</a>
