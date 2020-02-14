@@ -37,7 +37,7 @@
               <a href="#" class="navbar-brand text-white d-block mx-auto text-center py-3 mb-4 bottom-border">Admin Dashboard UI</a>
               <div class="bottom-border pb-3">
                 
-                <a href="#" class="text-white"><?php echo $_SESSION["username"]; ?></a>
+                <a href="#" class="text-white"><?php echo $_SESSION["admin"]; ?></a>
                 
               </div>
               <ul class="navbar-nav flex-column mt-4">
