@@ -5,8 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://requirejs.org/docs/release/2.3.5/minified/require.js"></script>
     <script src="admin_queries.js"></script>
-
 </head>
 <body>
     <h3 align="center">Manage Student Details</h3>
@@ -57,5 +57,15 @@
     </tr>
     </table>
     <div id="sum_per_year_container" align="center"></div>
+
+    <!-- NOW PASSING BACK JSON -->
+
+    <table border="1" align="center">
+    <tr>
+        <td> <input type="button" id="json_test" value="JSON TEST" /> </td>
+    </tr>
+    </table>
+    <div id="json_container" align="center"></div>
+    
 </body>
 </html>

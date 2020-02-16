@@ -1,8 +1,6 @@
 <?php 
-    include "../config.php"
-?>
+    include "../config.php";
 
-<?php 
 if (!isset($_GET['query'])){
     $result = mysqli_query($link,"SELECT loc_timestamp,latE7,longE7,accuracy,velocity,altitude,heading FROM locations LIMIT 20");
     echo "<table border='1' >
@@ -174,6 +172,18 @@ if ((isset($_GET['query'])) && ($_GET['query'] == "type_sum_per_year")){
         echo "</tr>";
     }
     echo "</table>";
+}
+
+if ((isset($_GET['query'])) && ($_GET['query'] == "json")){
+    $result = mysqli_query($link," SELECT location_id,loc_timestamp,latE7,longE7,accuracy,velocity,altitude,heading,l_acc_timestampMs,type,confidence,userid 
+                                    FROM locations 
+                                    LEFT JOIN location_activities ON location_id = location_activities.loc_id 
+                                    LEFT JOIN activity_type ON location_activities.loc_act_id = activity_type.activities_id 
+                                    ORDER BY location_id");
+    while ( $row = $result->fetch_assoc())  {
+        $dbdata[]=$row;
+      }
+    echo json_encode($dbdata);
 }
 
 ?>

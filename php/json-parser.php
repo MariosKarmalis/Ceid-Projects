@@ -57,7 +57,7 @@ include "config.php"
       *   }]
       */
 
-      $json = file_get_contents("../0_Demo_data/setA.json");
+      $json = file_get_contents("../Demo_Data/setA.json");
       $json2 = json_decode($json,TRUE);
       foreach ($json2['locations'] as $loc) {
         $timestampMs = NULL;
