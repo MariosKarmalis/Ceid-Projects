@@ -178,4 +178,36 @@
    ,{"timestampMs":"1443170078920","latitudeE7":382315589,"longitudeE7":217555328,"accuracy":24,"activity":[{"timestampMs":"1443169985255","activity":[{"type":"STILL","confidence":100}]},{"timestampMs":"1443170078524","activity":[{"type":"STILL","confidence":100}]}]}
    ,{"timestampMs":"1443174303445","latitudeE7":382315596,"longitudeE7":217555312,"accuracy":25,"activity":[{"timestampMs":"1443174185834","activity":[{"type":"STILL","confidence":100}]},{"timestampMs":"1443174291423","activity":[{"type":"STILL","confidence":100}]}]}
    ,{"timestampMs":"1443175722631","latitudeE7":382315596,"longitudeE7":217555312,"accuracy":25}
+   ,{"timestampMs":"1504683173082","latitudeE7":382522408,"longitudeE7":217432516,"accuracy":1903,"activity":[{"timestampMs":"1504683194593","activity":[{"type":"STILL","confidence":100}]}]}
+   ,{"timestampMs":"1504686007167","latitudeE7":382522408,"longitudeE7":217432516,"accuracy":1903,"activity":[{"timestampMs":"1504685952928","activity":[{"type":"STILL","confidence":100}]}]}
+   ,{"timestampMs":"1504686612052","latitudeE7":382522408,"longitudeE7":217432516,"accuracy":1903}
+   ,{"timestampMs":"1504688029395","latitudeE7":382496838,"longitudeE7":217409965,"accuracy":104,"activity":[{"timestampMs":"1504688029099","activity":[{"type":"STILL","confidence":100}]}]}
+   ,{"timestampMs":"1504690260090","latitudeE7":382499373,"longitudeE7":217405626,"accuracy":104}
+   ,{"timestampMs":"1540629071855","latitudeE7":377714340,"longitudeE7":212922505,"accuracy":17,"altitude":30,"verticalAccuracy":2}
+   ,{"timestampMs":"1540629212688","latitudeE7":377714203,"longitudeE7":212923405,"accuracy":17,"altitude":30,"verticalAccuracy":2}
+   ,{"timestampMs":"1540629261347","latitudeE7":377714203,"longitudeE7":212923405,"accuracy":649,"altitude":30,"verticalAccuracy":2}
+   ,{"timestampMs":"1540629806029","latitudeE7":377714266,"longitudeE7":212923623,"accuracy":16,"altitude":30,"verticalAccuracy":2}
+   ,{"timestampMs":"1540634662933","latitudeE7":377778315,"longitudeE7":213090282,"accuracy":104}
+   ,{"timestampMs":"1540634782865","latitudeE7":377745807,"longitudeE7":213163611,"accuracy":2900}
+   ,{"timestampMs":"1540636206096","latitudeE7":377952946,"longitudeE7":213476610,"accuracy":1700}
+   ,{"timestampMs":"1540637073276","latitudeE7":377950205,"longitudeE7":213425282,"accuracy":16,"activity":[{"timestampMs":"1540637076831","activity":[{"type":"STILL","confidence":69},{"type":"IN_VEHICLE","confidence":12},{"type":"IN_ROAD_VEHICLE","confidence":12},{"type":"ON_FOOT","confidence":9},{"type":"WALKING","confidence":9},{"type":"IN_TWO_WHEELER_VEHICLE","confidence":6},{"type":"IN_FOUR_WHEELER_VEHICLE","confidence":6},{"type":"IN_RAIL_VEHICLE","confidence":5},{"type":"ON_BICYCLE","confidence":3},{"type":"UNKNOWN","confidence":2}]}]}
+   ,{"timestampMs":"1540637435206","latitudeE7":377950132,"longitudeE7":213425332,"accuracy":1574}
+   ,{"timestampMs":"1540637803335","latitudeE7":377950214,"longitudeE7":213425351,"accuracy":1572}
+   ,{"timestampMs":"1540638098327","latitudeE7":377950216,"longitudeE7":213425324,"accuracy":16}
+   ,{"timestampMs":"1540638643120","latitudeE7":377950132,"longitudeE7":213425332,"accuracy":16}
+   ,{"timestampMs":"1540647052301","latitudeE7":377950215,"longitudeE7":213425396,"accuracy":16,"activity":[{"timestampMs":"1540644208682","activity":[{"type":"TILTING","confidence":100}]}]}
+   ,{"timestampMs":"1540649203311","latitudeE7":377950132,"longitudeE7":213425332,"accuracy":16}
+   ,{"timestampMs":"1540652599376","latitudeE7":377952946,"longitudeE7":213476610,"accuracy":1700}
+   ,{"timestampMs":"1540654853054","latitudeE7":377950215,"longitudeE7":213425396,"accuracy":16}
+   ,{"timestampMs":"1540655225030","latitudeE7":377950215,"longitudeE7":213425396,"accuracy":16}
+   ,{"timestampMs":"1540655615045","latitudeE7":377950216,"longitudeE7":213425397,"accuracy":16}
+   ,{"timestampMs":"1540712533439","latitudeE7":377951024,"longitudeE7":213426380,"accuracy":60}
+   ,{"timestampMs":"1540716076413","latitudeE7":377944935,"longitudeE7":213449021,"accuracy":1976}
+   ,{"timestampMs":"1540716379537","latitudeE7":377951076,"longitudeE7":213425186,"accuracy":82}
+   ,{"timestampMs":"1540717876247","latitudeE7":377944935,"longitudeE7":213449021,"accuracy":1976}
+   ,{"timestampMs":"1540718239235","latitudeE7":377967103,"longitudeE7":213507073,"accuracy":16,"altitude":77,"verticalAccuracy":2}
+   ,{"timestampMs":"1540718481088","latitudeE7":377946963,"longitudeE7":213457979,"accuracy":2200}
+   ,{"timestampMs":"1540718646063","latitudeE7":377946963,"longitudeE7":213457979,"accuracy":2200,"activity":[{"timestampMs":"1540717521456","activity":[{"type":"TILTING","confidence":100}]}]}
+   ,{"timestampMs":"1540719276445","latitudeE7":377962980,"longitudeE7":213507481,"accuracy":213,"altitude":78,"verticalAccuracy":2}
+   ,{"timestampMs":"1540721571142","latitudeE7":377952946,"longitudeE7":213476610,"accuracy":1700}
 ]}

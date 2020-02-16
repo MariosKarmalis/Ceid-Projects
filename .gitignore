@@ -1,5 +1,8 @@
-/0_Demo_data/__MACOSX
-/0_Demo_data/readme.txt
-/0_Demo_data/Location History1.json
-/0_Demo_data/Location History2.json
+/Demo_Data/__MACOSX
+/Demo_Data/readme.txt
+/Demo_Data/Location History1.json
+/Demo_Data/Location History2.json
 /php/troubleshooting
+/php/admin_ajax/extrajs.js
+/php/admin_ajax/onlyjsonreturns.php
+/php/admin_ajax/test.php
