@@ -193,7 +193,6 @@ $(document).ready(function() {
 
                 // $("#json_container").append(tr_str); 
             }
-            // TODO check JSON parse error. stringify first !  
             console.log(test);
         }
     });
