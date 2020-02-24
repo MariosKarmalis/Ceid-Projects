@@ -1,0 +1,80 @@
+body{
+    background-color: darkgrey;
+    font-family: monospace;
+    font-size: 20px;
+    font-weight: 500;
+    
+    max-width: 38rem;
+    padding: 2rem;
+    margin: auto;
+}
+
+#mapid { 
+    height: 800px; 
+    width : 100%;
+    margin-left: 0 ;
+}
+
+#form_cont {
+    margin : 0 auto;
+    display: block;
+}
+
+#form_cont h3 {
+    text-align: center;
+}
+
+.row {
+  display: flex;
+}
+
+.form_col {
+  flex: 50%;
+  padding: 10px;
+}
+
+#form_cont form select{
+    width: 100%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+
+
+/* Style the submit button */
+input[type=submit] {
+    width: 100%;
+    background-color: #4CAF50;
+    color: white;
+    padding: 14px 20px;
+    margin: 8px 0;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+  }
+  
+  /* Add a background color to the submit button on mouse-over */
+  input[type=submit]:hover {
+    background-color: #45a049;
+  }
+
+  
+  /* Style the submit button */
+  #query_button {
+    width: 100%;
+    background-color: #4CAF50;
+    color: white;
+    padding: 14px 20px;
+    margin: 8px 0;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+  }
+  
+  /* Add a background color to the submit button on mouse-over */
+  #query_button:hover {
+    background-color: #45a049;
+  }

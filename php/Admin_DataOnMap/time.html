@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Times Testing</title>
+    <link rel="stylesheet" href="map.css">
+    <script src="./for_times.js" defer></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+</head>
+<body>
+    <div id="form_cont">
+        <h3> Times Picker </h3>
+        <form id="month_form">
+            <div class="row">
+                <div class ="form_col">
+                    <label for="start-day"> Day </label>
+                    <select name="start-day" id="start_day">
+                        <!-- ! Note: 1=Sunday, 2=Monday, 3=Tuesday, 4=Wednesday, 5=Thursday, 6=Friday, 7=Saturday. SQL FUNCTION -->
+                        <option value="" selected="None"></option>
+                        <option value="2">Monday</option>
+                        <option value="3">Tuesday</option>
+                        <option value="4">Wednesday</option>
+                        <option value="5">Thursday</option>
+                        <option value="6">Friday</option>
+                        <option value="7">Saturday</option>
+                        <option value="1">Sunday</option>
+                    </select>
+                    <label for="end-day"> End Day (Optional) </label>
+                    <select name="end-day" id="end_day">
+                        <option value="" selected="None"></option>
+                        <option value="2">Monday</option>
+                        <option value="3">Tuesday</option>
+                        <option value="4">Wednesday</option>
+                        <option value="5">Thursday</option>
+                        <option value="6">Friday</option>
+                        <option value="7">Saturday</option>
+                        <option value="1">Sunday</option>
+                    </select>
+                </div>
+                <div class ="form_col">
+                    <label for="start-month"> Month </label>
+                    <select name="start-month" id="start_month">
+                        <option value="" selected="None"></option>
+                        <option value="1">Jan</option>
+                        <option value="2">Feb</option>
+                        <option value="3">Mar</option>
+                        <option value="4">Apr</option>
+                        <option value="5">May</option>
+                        <option value="6">Jun</option>
+                        <option value="7">Jul</option>
+                        <option value="8">Aug</option>
+                        <option value="9">Sep</option>
+                        <option value="10">Oct</option>
+                        <option value="11">Nov</option>
+                        <option value="12">Dec</option>
+                    </select>
+                    <label for="end-month"> End Month (Optional) </label>
+                    <select name="end-month" id="end_month">
+                        <option value="" selected="None"></option>
+                        <option value="1">Jan</option>
+                        <option value="2">Feb</option>
+                        <option value="3">Mar</option>
+                        <option value="4">Apr</option>
+                        <option value="5">May</option>
+                        <option value="6">Jun</option>
+                        <option value="7">Jul</option>
+                        <option value="8">Aug</option>
+                        <option value="9">Sep</option>
+                        <option value="10">Oct</option>
+                        <option value="11">Nov</option>
+                        <option value="12">Dec</option>
+                    </select>
+                </div>
+                <div class ="form_col">
+                    <label for="start-year"> Year </label>
+                    <select name="start-year" id="start_year">
+                        <option value="" selected="None"></option>
+                    </select>
+                    <label for="end-year"> End Year (Optional) </label>
+                    <select name="end-year" id="end_year">
+                        <option value="" selected="None"></option>
+                    </select>
+                </div>
+                <div class ="form_col">
+                    <label for="start-time"> Time </label>
+                    <select name="start-time" id="start_time">
+                        <option value="" selected="None"></option>
+                    </select>
+                    <label for="end-time"> End Time (Optional) </label>
+                    <select name="end-time" id="end_time">
+                        <option value="" selected="None"></option>
+                    </select>
+                </div>
+            </div>
+            <input id="month_submit" type="submit" value="Submit Query">
+        </form>
+    </div>
+
+</body>
+</html>
