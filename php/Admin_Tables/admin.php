@@ -35,7 +35,7 @@
         <td> <input type="button" id="type_sum_per_month" value="Display Sum of Entries Per Month" /> </td>
     </tr>
     </table>
-    <div id="sum_per_month_container" align="center"></div>
+    <div id="sum_per_form_container" align="center"></div>
     
     <table border="1" align="center">
     <tr>

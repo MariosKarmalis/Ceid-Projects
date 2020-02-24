@@ -25,7 +25,6 @@ $(document).ready(function() {
                 colour = getRandomColorHex();
                 act_colours[step] = colour;
             }
-            console.log(response);
             bar_chart(act_count,act_labels,act_colours,'PerActType','#Per Activity Type','bar');
         }
     });

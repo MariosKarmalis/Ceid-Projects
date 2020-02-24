@@ -1,4 +1,4 @@
-/*
+/** 
 * When the button with id display is clicked :
 * this ajax request will be sent to adminqueries.php 
 * @returns : all the location entries.
@@ -18,7 +18,7 @@ $(document).ready(function() {
     });
 });
 });
-/*
+/** 
 * When the button with id display is clicked :
 * this ajax request will be sent to adminqueries.php 
 * @returns : Locations' activity type percentages.
@@ -60,7 +60,7 @@ $(document).ready(function() {
     });
 });
 }); 
-/*
+/** 
 * When the button with id display is clicked :
 * this ajax request will be sent to adminqueries.php 
 * @returns : Sum of entries per month.
@@ -81,7 +81,7 @@ $(document).ready(function() {
     });
 });
 }); 
-/*
+/** 
 * When the button with id display is clicked :
 * this ajax request will be sent to adminqueries.php 
 * @returns : Sum of entries per day of week.
@@ -102,7 +102,7 @@ $(document).ready(function() {
     });
 });
 }); 
-/*
+/** 
 * When the button with id display is clicked :
 * this ajax request will be sent to adminqueries.php 
 * @returns : Sum of entries per hour.
@@ -123,7 +123,7 @@ $(document).ready(function() {
     });
 });
 }); 
-/*
+/** 
 * When the button with id display is clicked :
 * this ajax request will be sent to adminqueries.php 
 * @returns : Sum of entries per year.
@@ -144,7 +144,7 @@ $(document).ready(function() {
     });
 });
 });
-/*
+/** 
 * When the button with id display is clicked :
 * this ajax request will be sent to adminqueries.php 
 * @returns : Json Format data for 1 location.
