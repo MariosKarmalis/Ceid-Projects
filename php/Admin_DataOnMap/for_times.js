@@ -46,10 +46,37 @@ tsta.addEventListener("change", validate_date);
 tend.addEventListener("change", validate_date);
 
 function validate_date() {
+    // Ensuring start existence --> if end existence.
+    // Checking day
+    if (dend.value !=""){
+        if(dsta.value == "") {
+            alert("Can't define end day without start day");
+            dend.value = "" ;
+        }
+    }
+    // Checking month 
+    if (mend.value !=""){
+        if(msta.value == "") {
+            alert("Can't define end month without start month");
+            mend.value = "" ;
+        }
+    }
+    // Checking time
+    if (tend.value !=""){
+        if(tsta.value == "") {
+            alert("Can't define end time without start time");
+            tend.value = "" ;
+        }
+    }
+
     // Checking Year
     if (yend.value != ""){
         if (ysta.value > yend.value) {
             alert("Starting year should be less than ending year!");
+            yend.value = "";
+        }
+        if(ysta.value ==""){
+            alert("Can't define end year without start year");
             yend.value = "";
         }
     }
@@ -60,13 +87,53 @@ function validate_date() {
  * Time for collecting the information and utilizing them. 
  */
 
-document.getElementById("month_submit").onclick = month ;
+document.getElementById("query_submit").onclick = admin_query_data ;
 
-$("#month_form").submit(function(e) {
+$("#time_form").submit(function(e) {
     e.preventDefault();
 });
 
-function month() {
-    let formData = JSON.stringify($("#month_form").serializeArray());
-    console.log (formData);
+function admin_query_data() {
+    // Gathering 
+    let time_data = [dsta.value,
+        dend.value,
+        msta.value,
+        mend.value,
+        ysta.value,
+        yend.value,
+        tsta.value,
+        tend.value]
+
+    let types_data =$('#activity_type').val();
+
+    //? Clearing form ? 
+    // dsta.value = "";
+    // dend.value = "";
+    // msta.value = "";
+    // mend.value = "";
+    // ysta.value = "";
+    // yend.value = "";
+    // tsta.value = "";
+    // tend.value = "";
+    // $('#activity_type').val([]);
+    // TODO ADD ANIMATION HERE AND DISABLE USER INPUT.
+    return $.ajax({
+        type: "POST",
+        url: "admin_map.php",
+        data : {time_data : time_data, types_data : types_data},
+        success : function(response) {
+            display_to_Map(response);
+        },
+        error: function(xhr, resp, text) {
+            console.log(xhr, resp, text);
+        }
+    });
+}
+
+function display_to_Map(data) {
+    // TODO LINK WITH MAP AND CHANGE ANIMATION.
+    let test = JSON.parse(data);
+    console.log(test);
+    
+    
 }
