@@ -1,4 +1,9 @@
 <?php 
+
+    /**
+     * Query handling file for admin dashboard charts.
+     */
+
     include "../config.php";
     // First is just a test.
     if ((isset($_POST["type"]))&&($_POST["type"] == 1)){

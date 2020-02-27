@@ -8,7 +8,7 @@ $("#forma").submit(function(e) {
 function getData() {
     return $.ajax({
         type: "POST",
-        url: "test.php",             
+        url: "./admin_charts.php",             
         dataType: "json",   //expect JSON to be returned
         data : {type : 1}
     });
@@ -32,7 +32,7 @@ function withInput(){
     console.log (formData);
     return $.ajax({
         type: "POST",
-        url: "test.php",
+        url: "./admin_charts.php",
         data: formData
     })
 }

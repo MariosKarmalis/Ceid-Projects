@@ -13,7 +13,7 @@ $(document).ready(function() {
     $.ajax({
         type: "POST",
         data: {query : "activity_per_type"},
-        url: "test.php",             
+        url: "./admin_charts.php",             
         dataType: "json",                
         success: function(response){
             let act_count = [response.length];
@@ -34,7 +34,7 @@ $(document).ready(function() {
     $.ajax({
         type: "POST",
         data: {query : "sum_per_user"},
-        url: "test.php",             
+        url: "./admin_charts.php",             
         dataType: "json",                
         success: function(response){
             let usr_count = [response.length];
@@ -55,7 +55,7 @@ $(document).ready(function() {
     $.ajax({
         type: "POST",
         data: {query : "sum_per_month"},
-        url: "test.php",             
+        url: "./admin_charts.php",             
         dataType: "json",                
         success: function(response){
             let month_count = [response.length];
@@ -77,7 +77,7 @@ $(document).ready(function() {
     $.ajax({
         type: "POST",
         data: {query : "sum_per_day"},
-        url: "test.php",             
+        url: "./admin_charts.php",             
         dataType: "json",                
         success: function(response){
             let day_count = [response.length];
@@ -100,7 +100,7 @@ $(document).ready(function() {
     $.ajax({
         type: "POST",
         data: {query : "sum_per_hour"},
-        url: "test.php",             
+        url: "./admin_charts.php",             
         dataType: "json",                
         success: function(response){
             let hour_count = [response.length];
@@ -121,7 +121,7 @@ $(document).ready(function() {
     $.ajax({
         type: "POST",
         data: {query : "sum_per_year"},
-        url: "test.php",             
+        url: "./admin_charts.php",             
         dataType: "json",                
         success: function(response){
             let year_count = [response.length];
