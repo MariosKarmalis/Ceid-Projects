@@ -17,13 +17,13 @@ ___
   - [x] Entries distribution per Hour.
   - [x] Entries distribution per Year.
   
-### Info Display on Map: 
+#### Info Display on Map: 
  *Choices* :  
   + [x] Year
   + [x] Month (Jan - Dec)
   + [x] Day (Mon - Sun)
   + [x] Hour (0 - 23)
-  + [ ] Activity Type  
+  + [x] Activity Type  
  
   `All of which support range queries!`
 
@@ -44,9 +44,9 @@ ___
 
 ### 4. DATA EXTRACTION :
   After selecting a data display query, the selected data can be exported to :  
-  - [ ] CSV 
-  - [ ] XML
-  - [ ] JSON
+  - [x] CSV 
+  - [x] XML
+  - [x] JSON
 
 **Each entry**  
 **ex.**
