@@ -99,6 +99,7 @@ if(isset($_POST)){
     if($tsta != ""){
         if ($tend == ""){
             $time_clause = " ( HOUR(loc_timestamp) = $tsta ) ";
+            $clauses[] = $time_clause;
         }else{
             if($dsta > $dend){
                 $time_clause = " ( NOT (HOUR(loc_timestamp) > $tsta AND HOUR(loc_timestamp) < $tend) ) ";
@@ -155,8 +156,7 @@ if(isset($_POST)){
     }else{
         $final_query = $query_prefix . $query_postfix;
     }
-
-
+    
     // Executing query and returning data.
     $result = mysqli_query($link, $final_query);
     while ( $row = $result->fetch_assoc())  {
@@ -167,7 +167,6 @@ if(isset($_POST)){
         // Return the data in JSON format.
         $return = json_encode($dbdata);
         echo $return;
-        
         // Save to files.
         toFiles($dbdata);
     }else{
@@ -178,9 +177,10 @@ if(isset($_POST)){
 function toFiles(Array $data)
 {
     // TO JSON
+
     file_put_contents("./results/results.json",json_encode($data));
     // TO XML
-    $xml_data = new SimpleXMLElement('<?xml version="1.0"?><data></data>');
+    $xml_data = new SimpleXMLElement('<?xml version="1.0"?><Locations></Locations>');
     array_to_xml($data,$xml_data);
     $result = $xml_data->asXML("./results/results.xml");
     // TO CSV

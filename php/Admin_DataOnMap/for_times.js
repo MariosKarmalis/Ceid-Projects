@@ -94,7 +94,7 @@ $("#time_form").submit(function(e) {
 });
 
 function admin_query_data() {
-    // Gathering 
+    // Gathering data
     let time_data = [dsta.value,
         dend.value,
         msta.value,
@@ -106,16 +106,7 @@ function admin_query_data() {
 
     let types_data =$('#activity_type').val();
 
-    //? Clearing form ? 
-    // dsta.value = "";
-    // dend.value = "";
-    // msta.value = "";
-    // mend.value = "";
-    // ysta.value = "";
-    // yend.value = "";
-    // tsta.value = "";
-    // tend.value = "";
-    // $('#activity_type').val([]);
+    // ? Maybe clear the form? 
     // TODO ADD ANIMATION HERE AND DISABLE USER INPUT.
     return $.ajax({
         type: "POST",
@@ -131,9 +122,94 @@ function admin_query_data() {
 }
 
 function display_to_Map(data) {
-    // TODO LINK WITH MAP AND CHANGE ANIMATION.
-    let test = JSON.parse(data);
-    console.log(test);
-    
-    
+    // TODO CHANGE ANIMATION.
+
+    // First clear existing layers.
+    mymap.eachLayer(function (layer) {
+        mymap.removeLayer(layer);
+    });
+
+    // Set the map again.
+
+    L.tileLayer('https://api.mapbox.com/styles/v1/{id}/tiles/{z}/{x}/{y}?access_token=pk.eyJ1IjoiZXZyaXBpZGlzIiwiYSI6ImNrNm1sb25kZzBmdjQzaHJ1eDIzbWxscTUifQ.K0YS9MGl1aaZ8rnmlRAvmw', {
+        attribution: 'Map data &copy; <a href="https://www.openstreetmap.org/">OpenStreetMap</a> contributors, <a href="https://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, Imagery © <a href="https://www.mapbox.com/">Mapbox</a>',
+        maxZoom: 18,
+        id: 'mapbox/streets-v11',
+        tileSize: 512,
+        zoomOffset: -1
+    }).addTo(mymap);
+
+    // Callback for the data to be converted.
+    toGeoJSON(data,function(response){
+        let locations = response.features.map(function(rat) {
+            var location = rat.geometry.coordinates;
+            return location;
+          });
+          
+          var layer = L.TileLayer.maskCanvas({
+            radius: 5,  
+            useAbsoluteRadius: true, 
+            color: '#000',  
+            opacity: 0.5,  
+            noMask: false,  
+            lineColor: '#A00' 
+     });
+          layer.setData(locations);
+          mymap.addLayer(layer);
+    });
 }
+
+function toGeoJSON(data,callback) {
+    /**
+     * ! Key Note : Usually in geoJSON for coordinates we have [Long,Lat]
+     * But for our needs we went with Lat Long eventually.
+     */
+    let geojson ={
+        type: "FeatureCollection",
+        features :[],
+    };
+        json_data = JSON.parse(data);
+
+        for (i = 0; i < json_data.length; i++) {
+            geojson.features.push({
+              "type": "Feature",
+              "geometry": {
+                "type": "Point",
+                "coordinates": [Number(json_data[i].Latitude), Number(json_data[i].Longitude)] 
+              },
+              "properties": {
+                "Id": json_data[i].Location_ID,
+                "Location DateTime" : json_data[i].Location_DateTime ,
+                "Accuracy": json_data[i].Accuracy ,
+                "Velocity": json_data[i].Velocity ,
+                "Heading": json_data[i].Heading ,
+                "Altitude": json_data[i].Altitude ,
+                "Activity_DT": json_data[i].Activity_DT ,
+                "Type": json_data[i].Type ,
+                "Confidence": json_data[i].Confidence 
+              }
+            });
+        }
+        callback(geojson);
+}
+
+
+/**
+ * For DELETING DATA 
+ */
+
+ function deleting(){
+     if (confirm("Are you sure you want to delete all of the entries ?")){
+        return $.ajax({
+            type: "POST",
+            url: "delete_all.php",
+            success : function(response) {
+                document.getElementById("deleted").innerHTML = "Everything was deleted.";
+            },
+            error: function(xhr, resp, text) {
+                console.log(xhr, resp, text);
+                document.getElementById("deleted").innerHTML = "There was an error, check the console for more info.";
+            }
+        });
+     }
+ }

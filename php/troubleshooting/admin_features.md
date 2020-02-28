@@ -36,11 +36,11 @@ ___
 |Hour   | `-`               |
 |ActType| `WALKING,IN_CAR`  |
 
-> - [ ] Map display via heatmap.
+> - [x] Map display via heatmap.
 ---
 
 ### 3. DATA DELETION : 
-- [ ] After confirmation the system deletes all the data in the database.
+- [x] After confirmation the system deletes all the data in the database.
 
 ### 4. DATA EXTRACTION :
   After selecting a data display query, the selected data can be exported to :  
