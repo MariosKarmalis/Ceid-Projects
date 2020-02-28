@@ -15,11 +15,11 @@ include "config.php"
 
       function getDistance($lat,$long)
       {
-        /**
+        /**  
          * Function calculating the distance from the point (38.230462,21.753150)
          * Given 2 params
-         * @lat : float
-         * @long : float
+         * @param {float} : lat
+         * @param {float} : long
         */
 
         $earth_radius = 6371;
