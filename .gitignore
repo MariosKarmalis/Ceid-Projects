@@ -5,5 +5,3 @@
 php/troubleshooting/json_structure.ts
 php/troubleshooting/automated_sqlquery_maker.php
 php/troubleshooting/toGeoJSON.js
-php/Admin_DataOnMap/L.GridLayer.MaskCanvas.js
-php/Admin_DataOnMap/QuadTree.js
