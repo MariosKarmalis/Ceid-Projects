@@ -5,3 +5,6 @@
 php/troubleshooting/json_structure.ts
 php/troubleshooting/automated_sqlquery_maker.php
 php/troubleshooting/toGeoJSON.js
+php/Admin_DataOnMap/results/results.csv
+php/Admin_DataOnMap/results/results.json
+php/Admin_DataOnMap/results/results.xml
