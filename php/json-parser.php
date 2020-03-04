@@ -13,25 +13,28 @@ include "config.php"
     <pre>
       <?php
 
-      function getDistance($lat,$long)
+      function getDistance($lat,$lon,$p_lat = 38.230462, $p_lon = 21.753150, $earth_radius = 6371000)
       {
         /**  
          * Function calculating the distance from the point (38.230462,21.753150)
          * Given 2 params
-         * @param {float} : lat
-         * @param {float} : long
+         * @param {float} lat : latitude of point in check
+         * @param {float} long : longitude of point in check
+         * @param {float} p_lat : patras point latitude === our point of reference
+         * @param {float} p_lon : patras point longitude === our point of reference
         */
-
-        $earth_radius = 6371;
-
-        $dLat = deg2rad($lat - 38.230462);  
-        $dLon = deg2rad($long - 21.753150);  
-
-        $a = sin($dLat/2) * sin($dLat/2) + cos(deg2rad(38.230462)) * cos(deg2rad($lat)) * sin($dLon/2) * sin($dLon/2);  
-        $c = 2 * asin(sqrt($a));  
-        $d = $earth_radius * $c;
-
-        return $d;
+        
+        $latFrom = deg2rad($lat);
+        $lonFrom = deg2rad($lon);
+        $latTo = deg2rad($p_lat);
+        $lonTo = deg2rad($p_lon);
+      
+        $latDelta = $latTo - $latFrom;
+        $lonDelta = $lonTo - $lonFrom;
+      
+        $angle = 2 * asin(sqrt(pow(sin($latDelta / 2), 2) +
+          cos($latFrom) * cos($latTo) * pow(sin($lonDelta / 2), 2)));
+        return $angle * $earth_radius;
       }
 
       /* 
@@ -68,7 +71,8 @@ include "config.php"
         $heading = "NULL";
         $altitude = "NULL";
         if (array_key_exists('timestampMs', $loc)){
-            $timestampMs = date('Y-m-d h:i:s', (float)$loc['timestampMs'] / 1000);
+            $timestampMs = (float)$loc['timestampMs'];
+            $timestampMs = date('Y-m-d h:i:s', $timestampMs / 1000);
           }
         if (array_key_exists('latitudeE7', $loc)){
             $latitudeE7 = (float)$loc['latitudeE7']/1e7;
@@ -90,31 +94,32 @@ include "config.php"
           }
           
           // TODO Implement a connection with front-end --> grabbing the user_id from the logged in user --> passing it to the sql insertion. 
-            
-        if(getDistance($latitudeE7,$longitudeE7 < 10)){
+        $dist = getDistance($latitudeE7,$longitudeE7);
+        if( $dist < 10000 ){
           $sql = "INSERT INTO locations (loc_timestamp,latE7,longE7,accuracy,velocity,altitude,heading,userid) 
             VALUES ('$timestampMs','$latitudeE7','$longitudeE7','$accuracy',$velocity,$heading,$altitude,'5')";
 
           if ($link->query($sql) === TRUE) {
             $last_loc_id = $link->insert_id;
-            echo "New record created successfully. Last location inserted ID is: " . $last_loc_id. "\n";
+            // echo "New record created successfully. Last location inserted ID is: " . $last_loc_id. "\n";
           } else {
-            echo "Error: " . $sql . "<br>" . $link->error;
+            echo "Error: " . $sql . "<br>" . $link->error ."<br>";
           }
           
           if(array_key_exists('activity',$loc)){
             foreach($loc['activity'] as $loc_ac){
               if (array_key_exists('timestampMs', $loc_ac)){
-                  $loc_ac_timestampMs = date('Y-m-d h:i:s', (float)$loc_ac['timestampMs'] / 1000);
+                  $loc_ac_timestampMs = (float)$loc_ac['timestampMs'];
+                  $loc_ac_timestampMs = date('Y-m-d h:i:s', $loc_ac_timestampMs / 1000);
                   
                   $sql = "INSERT INTO location_activities (l_acc_timestampMs,loc_id)
                     VALUES ('$loc_ac_timestampMs','$last_loc_id')";
 
                   if ($link->query($sql) === TRUE) {
                     $last_l_acc_id = $link->insert_id;
-                    echo "New record created successfully. Last location activity inserted ID is: " . $last_l_acc_id. "\n";
+                    // echo "New record created successfully. Last location activity inserted ID is: " . $last_l_acc_id. "\n";
                   } else {
-                    echo "Error: " . $sql . "<br>" . $link->error;
+                    echo "Error: " . $sql . "<br>" . $link->error ."<br>";
                   }
               }
               if(array_key_exists('activity',$loc)){
@@ -131,14 +136,18 @@ include "config.php"
 
                   if ($link->query($sql) === TRUE) {
                     $last_l_acc_tc_id = $link->insert_id;
-                    echo "New record created successfully. Last location activity type-confidence inserted ID is: " . $last_l_acc_tc_id. "\n";
+                    // echo "New record created successfully. Last location activity type-confidence inserted ID is: " . $last_l_acc_tc_id. "\n";
                   } else {
-                    echo "Error: " . $sql . "<br>" . $link->error;
+                    echo "Error: " . $sql . "<br>" . $link->error ."<br>";
                   }
                 }
               }
             }
           }
+        }
+        else{
+          // echo "\n PASSED \n";
+          // echo "Distance " . $dist;
         }
       }
       ?>
