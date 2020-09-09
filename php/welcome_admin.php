@@ -41,11 +41,16 @@
     </script>
 
     <link rel="stylesheet" href="https://unpkg.com/leaflet@1.6.0/dist/leaflet.css"/>
-
     <link rel="stylesheet" href="map.css">
-
     <script src="QuadTree.js"></script>
     <script src="L.GridLayer.MaskCanvas.js"></script>
+
+  <!-- Chart scripts -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@2.8.0"></script>
+    <script src="./rand_colours.js" ></script>
+    <script src="./usercharts.js"></script>
+
   </head>
   <body>
     
@@ -224,6 +229,35 @@
     <button onclick="deleting()"> Delete all data </button>
     <p id = "deleted"></p>
   </body>  
+  <br style=line-height:600px; >
+  <body>
+    <h3 style= text-align:center;> Charts </h3>
+    <div class="chart-container" style="float: left;  margin: auto; height:300px; width:500px">
+        <canvas id="PerActType"></canvas>
+    </div>
+    
+    <div class="chart-container" style="float: right; margin: auto; height:300px; width:500px">
+        <canvas id="PerUserChart"></canvas>
+    </div>
+    
+    <div class="chart-container" style=" float: left; margin : auto; height:300px; width:500px">
+        <canvas id="PerMonthChart"></canvas>
+    </div>
+
+    <div class="chart-container" style=" float: right; margin: auto; height:300px; width:500px">
+        <canvas id="PerDayChart"></canvas>
+    </div>
+    
+    <div class="chart-container" style=" float: left; margin: auto; height:300px; width:500px">
+        <canvas id="PerHourChart"></canvas>
+    </div>
+
+    <div class="chart-container" style=" float: right; margin: auto; height:300px; width:500px">
+        <canvas id="PerYearChart"></canvas>
+    </div>
+
+  </body>
+
 </body>
 </html>
 
