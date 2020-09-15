@@ -1,11 +1,12 @@
 <?php
 // Include the database configuration file
 include 'config.php';
-
+session_start();
 // File upload path
-$targetDir = "Web/Data";
+$targetDir = "C:\wamp64\www\Web-Design-master\Demo_Data";
 $fileName = basename($_FILES["file"]["name"]);
 $targetFilePath = $targetDir . $fileName;
+
 $fileType = pathinfo($targetFilePath,PATHINFO_EXTENSION);
 
 if(isset($_POST["submit"]) && !empty($_FILES["file"]["name"])){
@@ -13,6 +14,8 @@ if(isset($_POST["submit"]) && !empty($_FILES["file"]["name"])){
     $allowedTypes = "json";
     if( ($fileType) == $allowedTypes ){
         // Upload file to server
+        $_SESSION["targetFilePath"] = $targetFilePath;
+        header("location:json-parser.php");
         if(move_uploaded_file($_FILES["file"]["tmp_name"], $targetFilePath)){
             // Insert json file name into database
             if($insert){
