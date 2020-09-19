@@ -49,13 +49,13 @@
             <!-- top-nav -->
             <div class="col-sm-12 d-flex justify-content-end">
             <nav class="navbar navbar-dark sticky-top bg-dark flex-md-nowrap  p-0">
-              <!--<input class="form-control form-control-dark w-100" type="text" placeholder="Search" aria-label="Search"> -->
+              <!-- <input class="form-control form-control-dark w-100" type="text" placeholder="Search" aria-label="Search"> 
               <ul class="navbar-nav px-3">
-              <li class="nav-item text-nowrap">
-                <a class="nav-link" href="logout.php">Logout</a>
-              </li>
-      </ul>
-    </nav>
+                <li class="nav-item text-nowrap">
+                  <a class="nav-link" href="logout.php">Logout</a>
+                </li>
+              </ul> -->
+            </nav>
             </div>
             <!-- end of top-nav -->
           </div>
@@ -64,27 +64,20 @@
     </nav>
     <!-- end of navbar -->
    
-
-  <!-- User based functions -->
+  </body>
+  <!--TODO User based functions -->
 
 
   <!-- DIV for uploading dataset to the database. -->
-  <body class="uploader">
-    <div class="container">
+  <body class="uploader" >
+    <div class="container1" style="float:right; width: 70%;">
      <form action="upload.php" method="post" enctype="multipart/form-data">
       Select Data File to Upload:
-      
         <input type="file" name="file">
-       <input type="submit" name="submit" value="Upload">
+        <input type="submit" name="submit" value="Upload">
        <!-- <button onclick="myFunction()"> Upload</button>  -->
       </form>
     </div>
   </body>
-    
-    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js" integrity="sha384-smHYKdLADwkXOn1EmN1qk/HfnUcbVRZyYmZ4qpPea6sjB/pTJ0euyQp0Mk8ck+5T" crossorigin="anonymous"></script>
-    <script src="script.js"></script>  
-
-  </body>
+  
 </html>

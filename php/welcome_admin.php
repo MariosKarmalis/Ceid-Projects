@@ -70,14 +70,12 @@
                 <a class="text-white"><?php echo 'admin : '; echo $_SESSION["admin"]; ?></a>
                 
               </div>
-             <!-- - <ul class="navbar-nav flex-column mt-4">
-                <li class="nav-item"><a href="#" class="nav-link text-white p-3 mb-2 current"><i class="fas fa-home text-light fa-lg mr-3"></i>Dashboard</a></li>
-                <li class="nav-item"><a href="#" class="nav-link text-white p-3 mb-2 sidebar-link"><i class="fas fa-chart-line text-light fa-lg mr-3"></i>Analytics</a></li>
-                <li class="nav-item"><a href="Admin_DataOnMap\time.html" class="nav-link text-white p-3 mb-2 sidebar-link"><i class="fas fa-chart-bar text-light fa-lg mr-3"></i>Heatmap</a></li>
-                <li class="nav-item"><a href="#" class="nav-link text-white p-3 mb-2 sidebar-link"><i class="fas fa-table text-light fa-lg mr-3"></i>Charts</a></li>
+              <ul class="navbar-nav flex-column mt-4">
+                <li class="nav-item"><a href="time.html" class="nav-link text-white p-3 mb-2 sidebar-link"><i class="fas fa-chart-bar text-light fa-lg mr-3"></i>Heatmap</a></li>
+                <li class="nav-item"><a href="onlyjsonreturns.html" class="nav-link text-white p-3 mb-2 sidebar-link"><i class="fas fa-table text-light fa-lg mr-3"></i>Charts</a></li>
                 <li class="nav-item"><a href="logout.php" class="nav-link text-white p-3 mb-2 sidebar-link"><i class="fas  text-light fa-lg mr-3"></i>Logout </a></li>
                   
-              </ul> - -->
+              </ul>
             </div>
             <!-- end of sidebar -->
 
@@ -100,7 +98,7 @@
     <!-- end of navbar --> 
   </body>
 <!-- Map Stuff  -->
-  <body style="width:80%; float:right;">
+  <body class="heatmap" style="width:80%; float:right;">
     <div id="form_cont">
         <h3> Heatmap </h3>
         <form id="time_form">
@@ -184,7 +182,7 @@
                         <option value="" selected="None"></option>
                     </select>
                 </div>
-                <div class ="form_col">
+                <div class ="form_col" style="width: 75%;">
                     <label for="activity-type"> Activity Types </label>
                     <select name="activity-type" class="selectpicker" id="activity_type" multiple>
                         <option value="EXITING_VEHICLE">EXITING_VEHICLE</option>
@@ -230,7 +228,10 @@
     <p id = "deleted"></p>
   </body>  
   <br style=line-height:600px; >
-  <body>
+
+  <!-- Chart body implementation -->
+
+  <body >
     <h3 style= text-align:center;> Charts </h3>
     <div class="chart-container" style="float: left;  margin: auto; height:300px; width:500px">
         <canvas id="PerActType"></canvas>
@@ -257,6 +258,8 @@
     </div>
 
   </body>
+
+  <!--End of Chart body implementation -->
 
 </body>
 </html>
